@@ -1,9 +1,10 @@
-package com.sparta.mr;
+package com.sparta.mr.start;
 
 public enum SorterOption {
-    BUBBLE_SORT("Bubble Sort");
+    BUBBLE("Bubble Sort"),
+    MERGE("Merge Sort");
 
-    String name;
+    private String name;
 
     SorterOption(String name) {
         this.name = name;

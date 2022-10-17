@@ -1,10 +1,10 @@
-package com.sparta.mr;
+package com.sparta.mr.display;
 
-import com.sparta.mr.sorters.Sorter;
+import com.sparta.mr.start.SorterOption;
 
 import java.util.Scanner;
 
-public class Input {
+public class DisplayManager {
 
     private static Scanner commandLineIn = new Scanner(System.in);
 
