@@ -33,7 +33,7 @@ public class BubbleSortTest {
         int[] unordered = Arrays.copyOf(ordered, ordered.length);
         TestUtils.reverseArray(unordered);
 
-        Assertions.assertArrayEquals(ordered, sorter.sort(unordered));
+        Assertions.assertArrayEquals(ordered, sorter.sort(uered));
     }
 
     @ParameterizedTest

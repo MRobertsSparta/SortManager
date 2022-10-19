@@ -7,7 +7,7 @@ public class BinaryTree {
 
     private Node rootNode;
 
-    public class Node {
+    private class Node {
 
         private final int element;
         private Node leftNode;
@@ -49,6 +49,14 @@ public class BinaryTree {
 
         public boolean hasRightNode() {
             return (rightNode != null);
+        }
+    }
+
+    private class Index {
+        private int value = 0;
+
+        public int increment() {
+            return value++;
         }
     }
 
@@ -99,7 +107,7 @@ public class BinaryTree {
             throw new NoRootNodeException();
         }
         Node node = rootNode;
-        while (node.hasRightNode() || node.hasLeftNode()) {
+        do {
             if (element == node.getElement()) {
                 return node;
             }
@@ -108,7 +116,7 @@ public class BinaryTree {
             } else if (element > node.getElement()) {
                 node = node.getRightNode();
             }
-        }
+        } while (node.hasRightNode() || node.hasLeftNode());
         throw new ChildNotFoundException();
     }
     
@@ -162,14 +170,6 @@ public class BinaryTree {
         ints[index.increment()] = node.getElement();
         if (node.hasRightNode()) {
             addChildElements(node.getRightNode(), ints, index);
-        }
-    }
-
-    private class Index {
-        private int value = 0;
-
-        public int increment() {
-            return value++;
         }
     }
 

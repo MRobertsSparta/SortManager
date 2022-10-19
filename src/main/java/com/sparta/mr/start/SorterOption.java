@@ -2,7 +2,8 @@ package com.sparta.mr.start;
 
 public enum SorterOption {
     BUBBLE("Bubble Sort"),
-    MERGE("Merge Sort");
+    MERGE("Merge Sort"),
+    TREE("Binary Tree Sort");
 
     private String name;
 
