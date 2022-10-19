@@ -1,11 +1,16 @@
 package com.sparta.mr.sorters;
 
+import com.sparta.mr.exceptions.NullArraySortException;
+
 import java.util.Arrays;
 
 public class MergeSort implements Sorter {
 
     @Override
-    public int[] sort(int[] ints) {
+    public int[] sort(int[] ints) throws NullArraySortException {
+        if (ints == null) {
+            throw new NullArraySortException();
+        }
         if (ints.length < 2) {
             return ints;
         } else {
