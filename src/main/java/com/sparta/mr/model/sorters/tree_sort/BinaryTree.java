@@ -20,7 +20,7 @@ public class BinaryTree {
 
         public Node(int element) {
             this.element = element;
-            logger.log(Level.FINEST, "Node created with element value of", + element);
+            logger.log(Level.FINEST, "Node created with element value of " + element);
         }
 
         public int getElement() {
