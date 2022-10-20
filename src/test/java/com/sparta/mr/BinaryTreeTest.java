@@ -1,4 +1,4 @@
-package com.sparta.mr.sort_tests;
+package com.sparta.mr;
 
 import com.sparta.mr.controller.exceptions.ChildNotFoundException;
 import com.sparta.mr.model.sorters.tree_sort.BinaryTree;

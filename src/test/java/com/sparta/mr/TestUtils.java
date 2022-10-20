@@ -1,4 +1,4 @@
-package com.sparta.mr.sort_tests;
+package com.sparta.mr;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 public class TestUtils {
 
-    private static int[] generateRandomIntArray() {
+    public static int[] generateRandomIntArray() {
         Random r = new Random();
         int size = r.nextInt(101);
         int[] ints = new int[size];
@@ -22,7 +22,7 @@ public class TestUtils {
         return Stream.of(generateRandomIntArray());
     }
 
-    private static int[] generateRandomOrderedIntArray() {
+    public static int[] generateRandomOrderedIntArray() {
         int[] ints = generateRandomIntArray();
         Arrays.sort(ints);
         return ints;

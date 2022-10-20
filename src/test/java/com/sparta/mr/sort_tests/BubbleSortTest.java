@@ -2,12 +2,14 @@ package com.sparta.mr.sort_tests;
 
 import com.sparta.mr.controller.exceptions.NullArraySortException;
 import com.sparta.mr.model.sorters.BubbleSort;
+import com.sparta.mr.model.util.SortResults;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.NullSource;
+import com.sparta.mr.TestUtils;
 
 import java.util.Arrays;
 
@@ -66,5 +68,13 @@ public class BubbleSortTest {
     @DisplayName("Test if a null list throws an exception")
     void TestNullList(int[] empty) {
         Assertions.assertThrows(NullArraySortException.class, () -> {sorter.sort(empty);});
+    }
+
+    @ParameterizedTest
+    @MethodSource("com.sparta.mr.sort_tests.TestUtils#getRandomIntArrayAsStream")
+    @DisplayName("Test if the sorter can be timed")
+    void TestSorterCanBeTimed(int[] unordered) {
+        SortResults results = sorter.timedSort(unordered);
+        Assertions.assertNotEquals(0l, results.getTimeTakenNano());
     }
 }
