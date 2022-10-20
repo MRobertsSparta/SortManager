@@ -1,4 +1,4 @@
-package com.sparta.mr.start;
+package com.sparta.mr.model.util;
 
 public enum SorterOption {
     BUBBLE("Bubble Sort"),

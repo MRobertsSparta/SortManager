@@ -1,8 +1,7 @@
 package com.sparta.mr.sort_tests;
 
-import com.sparta.mr.exceptions.NullArraySortException;
-import com.sparta.mr.sorters.BubbleSort;
-import com.sparta.mr.sorters.tree_sort.BinaryTreeSort;
+import com.sparta.mr.controller.exceptions.NullArraySortException;
+import com.sparta.mr.model.sorters.tree_sort.BinaryTreeSort;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;

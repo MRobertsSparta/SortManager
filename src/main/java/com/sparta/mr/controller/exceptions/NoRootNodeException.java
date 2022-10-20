@@ -1,4 +1,4 @@
-package com.sparta.mr.exceptions;
+package com.sparta.mr.controller.exceptions;
 
 public class NoRootNodeException extends RuntimeException{
     @Override

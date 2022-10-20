@@ -1,4 +1,4 @@
-package com.sparta.mr.start;
+package com.sparta.mr.controller;
 public class App
 {
     public static void main( String[] args )
