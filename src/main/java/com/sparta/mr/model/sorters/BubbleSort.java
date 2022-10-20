@@ -2,7 +2,9 @@ package com.sparta.mr.model.sorters;
 
 import com.sparta.mr.controller.exceptions.NullArraySortException;
 import com.sparta.mr.controller.logging.CustomLogger;
+import com.sparta.mr.model.util.SortResults;
 import com.sparta.mr.model.util.SortUtils;
+import com.sparta.mr.model.util.StopWatch;
 
 import java.util.Arrays;
 import java.util.logging.Level;
@@ -31,6 +33,15 @@ public class BubbleSort implements Sorter {
             }
         }
         return array;
+    }
+
+    @Override
+    public SortResults timedSort(int[] ints) throws NullArraySortException {
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+        int[] sortedInts = sort(ints);
+        stopWatch.stop();
+        return new SortResults(ints, sortedInts, stopWatch.getTime());
     }
 
 }
