@@ -3,6 +3,7 @@ package com.sparta.mr.controller;
 import com.sparta.mr.controller.logging.CustomLogger;
 import com.sparta.mr.model.sorters.BubbleSort;
 import com.sparta.mr.model.sorters.MergeSort;
+import com.sparta.mr.model.sorters.QuickSort;
 import com.sparta.mr.model.sorters.Sorter;
 import com.sparta.mr.model.sorters.tree_sort.BinaryTreeSort;
 import com.sparta.mr.model.util.SorterOption;
@@ -20,6 +21,7 @@ public class SortFactory {
             case BUBBLE -> new BubbleSort();
             case MERGE -> new MergeSort();
             case TREE -> new BinaryTreeSort();
+            case QUICK -> new QuickSort();
         };
     }
 }

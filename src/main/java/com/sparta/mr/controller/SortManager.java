@@ -8,6 +8,7 @@ import com.sparta.mr.model.util.SorterOption;
 import com.sparta.mr.view.ConsoleInput;
 import com.sparta.mr.view.ConsolePrinter;
 
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,8 +28,9 @@ public class SortManager {
 
         SortResults results = sorter.timedSort(unsortedArray);
         logger.log(Level.INFO, "Array sorted in " + results.getTimeTakenNano()
-                +" nanoseconds, final array: " + results.getSortedArray());
+                +" nanoseconds, final array: "
+                + Arrays.toString(results.getSortedArray()));
         ConsolePrinter.printSortResults(results);
-        logger.log(Level.INFO, "Process finished.");
+        logger.log(Level.INFO, "Sort Manager process finished.");
     }
 }

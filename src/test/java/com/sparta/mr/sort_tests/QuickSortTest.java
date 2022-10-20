@@ -1,7 +1,8 @@
 package com.sparta.mr.sort_tests;
 
+import com.sparta.mr.TestUtils;
 import com.sparta.mr.controller.exceptions.NullArraySortException;
-import com.sparta.mr.model.sorters.BubbleSort;
+import com.sparta.mr.model.sorters.QuickSort;
 import com.sparta.mr.model.util.SortResults;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -9,13 +10,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.NullSource;
-import com.sparta.mr.TestUtils;
 
 import java.util.Arrays;
 
-public class BubbleSortTest {
+public class QuickSortTest {
 
-    private BubbleSort sorter = new BubbleSort();
+    private QuickSort sorter = new QuickSort();
 
     @ParameterizedTest
     @MethodSource("com.sparta.mr.TestUtils#getRandomIntArrayAsStream")

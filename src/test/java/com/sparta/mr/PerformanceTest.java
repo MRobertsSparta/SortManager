@@ -2,6 +2,7 @@ package com.sparta.mr;
 
 import com.sparta.mr.model.sorters.BubbleSort;
 import com.sparta.mr.model.sorters.MergeSort;
+import com.sparta.mr.model.sorters.QuickSort;
 import com.sparta.mr.model.sorters.Sorter;
 import com.sparta.mr.model.sorters.tree_sort.BinaryTreeSort;
 import org.junit.jupiter.api.Test;
@@ -23,10 +24,14 @@ public class PerformanceTest {
     public void testMergeSortPerformance() {
         testSorterPerformance(new MergeSort());
     }
+
     @Test
     public void testBinaryTreeSortPerformance() {
         testSorterPerformance(new BinaryTreeSort());
     }
+
+    @Test
+    public void testQuickSortPerformance() { testSorterPerformance(new QuickSort());}
 
     private void testSorterPerformance(Sorter sorter) {
         long start = System.nanoTime();

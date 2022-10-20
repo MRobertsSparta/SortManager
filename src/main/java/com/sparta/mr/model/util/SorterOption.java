@@ -3,7 +3,8 @@ package com.sparta.mr.model.util;
 public enum SorterOption {
     BUBBLE("Bubble Sort"),
     MERGE("Merge Sort"),
-    TREE("Binary Tree Sort");
+    TREE("Binary Tree Sort"),
+    QUICK("Quick Sort");
 
     private String name;
 

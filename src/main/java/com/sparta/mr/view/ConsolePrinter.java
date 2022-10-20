@@ -4,6 +4,7 @@ import com.sparta.mr.controller.logging.CustomLogger;
 import com.sparta.mr.model.util.SortResults;
 import com.sparta.mr.model.util.SorterOption;
 
+import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -37,12 +38,13 @@ public class ConsolePrinter {
     }
 
     public static void printSortResults(SortResults sortResults) {
+        DecimalFormat df = new DecimalFormat("###,###.####");
         System.out.println("Before Sorting:");
         printArray(sortResults.getInitialArray());
         System.out.println("After Sorting:");
         printArray(sortResults.getSortedArray());
         System.out.println("Time taken "
-                + sortResults.getTimeTakenNano()
+                + (df.format(sortResults.getTimeTakenNano()))
                 + " nanoseconds.");
     }
 }

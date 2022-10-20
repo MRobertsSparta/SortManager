@@ -196,6 +196,7 @@ public class BinaryTree {
             logger.log(Level.FINEST, "Node has right child, moving to right child.");
             addChildElements(node.getRightNode(), ints, index);
         }
+        logger.log(Level.FINEST, "Moved to parent node.");
     }
 
 }

@@ -18,7 +18,7 @@ public class MergeSortTest {
     private MergeSort sorter = new MergeSort();
 
     @ParameterizedTest
-    @MethodSource("com.sparta.mr.sort_tests.TestUtils#getRandomIntArrayAsStream")
+    @MethodSource("com.sparta.mr.TestUtils#getRandomIntArrayAsStream")
     @DisplayName("Test if an unordered list is ordered")
     void TestUnorderedList(int[] unordered) {
         int[] ordered = Arrays.copyOf(unordered, unordered.length);
@@ -28,7 +28,7 @@ public class MergeSortTest {
     }
 
     @ParameterizedTest
-    @MethodSource("com.sparta.mr.sort_tests.TestUtils#getRandomOrderedIntArrayAsStream")
+    @MethodSource("com.sparta.mr.TestUtils#getRandomOrderedIntArrayAsStream")
     @DisplayName("Test if an reverse ordered list is ordered")
     void TestReverseOrderedList(int[] ordered) {
         int[] unordered = Arrays.copyOf(ordered, ordered.length);
@@ -38,7 +38,7 @@ public class MergeSortTest {
     }
 
     @ParameterizedTest
-    @MethodSource("com.sparta.mr.sort_tests.TestUtils#getRandomOrderedIntArrayAsStream")
+    @MethodSource("com.sparta.mr.TestUtils#getRandomOrderedIntArrayAsStream")
     @DisplayName("Test if an ordered list remains ordered")
     void TestOrderedList(int[] ordered) {
         Arrays.sort(ordered);
@@ -47,7 +47,7 @@ public class MergeSortTest {
     }
 
     @ParameterizedTest
-    @MethodSource("com.sparta.mr.sort_tests.TestUtils#getRandomIntArrayAsStream")
+    @MethodSource("com.sparta.mr.TestUtils#getRandomIntArrayAsStream")
     @DisplayName("Test if the input list is unchanged")
     void TestInputListUnchanged(int[] inputList) {
         int[] compareList = Arrays.copyOf(inputList, inputList.length);
@@ -71,7 +71,7 @@ public class MergeSortTest {
     }
 
     @ParameterizedTest
-    @MethodSource("com.sparta.mr.sort_tests.TestUtils#getRandomIntArrayAsStream")
+    @MethodSource("com.sparta.mr.TestUtils#getRandomIntArrayAsStream")
     @DisplayName("Test if the sorter can be timed")
     void TestSorterCanBeTimed(int[] unordered) {
         SortResults results = sorter.timedSort(unordered);
