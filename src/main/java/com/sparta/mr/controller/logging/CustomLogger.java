@@ -5,16 +5,15 @@ import java.util.logging.Logger;
 
 public class CustomLogger {
 
-    public static Logger getLogger() {
-        Logger logger = Logger.getLogger("Custom Logger");
-        configureLogger(logger);
-        return logger;
-    }
+    private static final Logger logger = Logger.getLogger("Custom Logger");
 
-    public static void configureLogger(Logger logger) {
+    static {
         logger.setUseParentHandlers(false);
         logger.setLevel(Level.ALL);
         logger.addHandler(CustomFileHandler.getFileHandler());
+    }
+    public static Logger getLogger() {
+        return logger;
     }
 
 }

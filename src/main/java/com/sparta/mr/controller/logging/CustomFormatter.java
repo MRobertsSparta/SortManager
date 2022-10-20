@@ -18,8 +18,7 @@ public class CustomFormatter extends Formatter {
                 + " @ " + record.getSourceClassName()
                 + "#" + record.getSourceMethodName()
                 + "() :\n " + getIndent(record.getLevel())
-                + "    " + record.getMessage()
-                + "\n";
+                + record.getMessage() + "\n\n";
     }
 
     private String getIndent(Level level) {

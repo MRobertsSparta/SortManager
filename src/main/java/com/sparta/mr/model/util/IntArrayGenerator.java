@@ -11,7 +11,7 @@ public class IntArrayGenerator {
 
     private static final Logger logger = CustomLogger.getLogger();
 
-    private static int[] generateRandomIntArray(int length) {
+    public static int[] generateRandomIntArray(int length) {
         logger.log(Level.INFO, "Generating random integer array of length " + length);
         Random r = new Random();
         int[] ints = new int[length];
