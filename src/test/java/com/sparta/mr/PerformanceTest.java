@@ -1,9 +1,6 @@
 package com.sparta.mr;
 
-import com.sparta.mr.model.sorters.BubbleSort;
-import com.sparta.mr.model.sorters.MergeSort;
-import com.sparta.mr.model.sorters.QuickSort;
-import com.sparta.mr.model.sorters.Sorter;
+import com.sparta.mr.model.sorters.*;
 import com.sparta.mr.model.sorters.tree_sort.BinaryTreeSort;
 import org.junit.jupiter.api.Test;
 import com.sparta.mr.TestUtils;
@@ -32,6 +29,9 @@ public class PerformanceTest {
 
     @Test
     public void testQuickSortPerformance() { testSorterPerformance(new QuickSort());}
+
+    @Test
+    public void testInsertionSortPerformance() {testSorterPerformance(new InsertionSort());}
 
     private void testSorterPerformance(Sorter sorter) {
         long start = System.nanoTime();

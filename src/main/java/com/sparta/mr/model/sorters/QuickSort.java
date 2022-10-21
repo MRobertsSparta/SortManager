@@ -21,8 +21,7 @@ public class QuickSort implements Sorter {
             logger.log(Level.SEVERE, "Null array passed to the quick sort.");
             throw new NullArraySortException();
         }
-        int[] intsClone = ints.clone();
-        return quickSort(intsClone, 0, ints.length - 1);
+        return quickSort(ints.clone(), 0, ints.length - 1);
     }
 
     @Override
