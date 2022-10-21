@@ -6,6 +6,7 @@ Allows the user to use different sorting algorithms to sort a generated random a
 * Binary Tree Sort
 * Quick Sort
 * Insertion Sort
+* Cycle Sort
 * Selection Sort
 
 # Installation
