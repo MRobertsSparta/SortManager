@@ -27,11 +27,7 @@ public class BubbleSort implements Sorter {
 
     @Override
     public SortResults timedSort(int[] ints) throws NullArraySortException {
-        StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
-        int[] sortedInts = sort(ints);
-        stopWatch.stop();
-        return new SortResults(ints, sortedInts, stopWatch.getTime());
+        return SortUtils.timeSort(this, ints);
     }
 
     private int[] bubbleSort(int[] array) {

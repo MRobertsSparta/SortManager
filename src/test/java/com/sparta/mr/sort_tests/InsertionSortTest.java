@@ -7,6 +7,8 @@ import com.sparta.mr.model.sorters.MergeSort;
 import com.sparta.mr.model.util.SortResults;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -20,62 +22,96 @@ public class InsertionSortTest {
 
     @ParameterizedTest
     @MethodSource("com.sparta.mr.TestUtils#getRandomIntArrayAsStream")
-    @DisplayName("Test if an unordered list is ordered")
-    void TestUnorderedList(int[] unordered) {
-        int[] ordered = Arrays.copyOf(unordered, unordered.length);
-        Arrays.sort(ordered);
+    @DisplayName("Test if an unsorted array is sorted")
+    void TestUnsortedArray(int[] unsorted) {
+        int[] sorted = unsorted.clone();
+        Arrays.sort(sorted);
 
-        Assertions.assertArrayEquals(ordered, sorter.sort(unordered));
+        Assertions.assertArrayEquals(sorted, sorter.sort(unsorted));
     }
 
     @ParameterizedTest
-    @MethodSource("com.sparta.mr.TestUtils#getRandomOrderedIntArrayAsStream")
-    @DisplayName("Test if an reverse ordered list is ordered")
-    void TestReverseOrderedList(int[] ordered) {
-        int[] unordered = Arrays.copyOf(ordered, ordered.length);
-        TestUtils.reverseArray(unordered);
+    @MethodSource("com.sparta.mr.TestUtils#getRandomSortedIntArrayAsStream")
+    @DisplayName("Test if a reverse sorted array is sorted")
+    void TestReverseSortedArray(int[] sorted) {
+        int[] unsorted = sorted.clone();
+        TestUtils.reverseArray(unsorted);
 
-        Assertions.assertArrayEquals(ordered, sorter.sort(unordered));
+        Assertions.assertArrayEquals(sorted, sorter.sort(unsorted));
     }
 
     @ParameterizedTest
-    @MethodSource("com.sparta.mr.TestUtils#getRandomOrderedIntArrayAsStream")
-    @DisplayName("Test if an ordered list remains ordered")
-    void TestOrderedList(int[] ordered) {
-        Arrays.sort(ordered);
+    @MethodSource("com.sparta.mr.TestUtils#getRandomSortedIntArrayAsStream")
+    @DisplayName("Test if a sorted array remains sorted")
+    void TestSortedArray(int[] sorted) {
+        Arrays.sort(sorted);
 
-        Assertions.assertArrayEquals(ordered, sorter.sort(ordered));
+        Assertions.assertArrayEquals(sorted, sorter.sort(sorted));
     }
 
     @ParameterizedTest
     @MethodSource("com.sparta.mr.TestUtils#getRandomIntArrayAsStream")
-    @DisplayName("Test if the input list is unchanged")
-    void TestInputListUnchanged(int[] inputList) {
-        int[] compareList = Arrays.copyOf(inputList, inputList.length);
-        sorter.sort(inputList);
+    @DisplayName("Test if the input array is unchanged")
+    void TestInputArrayUnchanged(int[] inputArray) {
+        int[] compareArray = Arrays.copyOf(inputArray, inputArray.length);
+        sorter.sort(inputArray);
 
-        Assertions.assertArrayEquals(compareList, inputList);
+        Assertions.assertArrayEquals(compareArray, inputArray);
+    }
+
+    @Test
+    @DisplayName("Test if an array with duplicates is sorted")
+    void TestArrayWithDuplicates() {
+        int[] unsorted = {10, 5, 2, 7, 5, 1, 5, 1};
+        int[] sorted = unsorted.clone();
+        Arrays.sort(sorted);
+        Assertions.assertArrayEquals(sorted, sorter.sort(unsorted));
+    }
+
+    @Test
+    @DisplayName("Test if an array with negative numbers is sorted")
+    void TestArrayWithNegatives() {
+        int[] unsorted = {-10, -5, -2, -7, -3, -1, 5, 1};
+        int[] sorted = unsorted.clone();
+        Arrays.sort(sorted);
+        Assertions.assertArrayEquals(sorted, sorter.sort(unsorted));
+    }
+
+    @Test
+    @DisplayName("Test if an array with an odd number of elements is sorted")
+    void TestOddLengthArray() {
+        int[] unsorted = {-10, -5, -2, -7, -3, -1, 5};
+        int[] sorted = unsorted.clone();
+        Arrays.sort(sorted);
+        Assertions.assertArrayEquals(sorted, sorter.sort(unsorted));
+    }
+
+    @Test
+    @DisplayName("Test if an array with one element is returned unchanged")
+    void TestSingleElement() {
+        int[] ints = {0};
+        Assertions.assertArrayEquals(ints, sorter.sort(ints));
     }
 
     @ParameterizedTest
     @EmptySource
-    @DisplayName("Test if an empty list is returned empty")
-    void TestIfEmptyListIsReturned(int[] empty) {
+    @DisplayName("Test if an empty array is returned empty")
+    void TestIfEmptyArrayIsReturned(int[] empty) {
         Assertions.assertArrayEquals(empty, sorter.sort(empty));
     }
 
     @ParameterizedTest
     @NullSource
-    @DisplayName("Test if a null list throws an exception")
-    void TestNullList(int[] empty) {
+    @DisplayName("Test if a null array throws an exception")
+    void TestNullArray(int[] empty) {
         Assertions.assertThrows(NullArraySortException.class, () -> {sorter.sort(empty);});
     }
 
     @ParameterizedTest
     @MethodSource("com.sparta.mr.TestUtils#getRandomIntArrayAsStream")
     @DisplayName("Test if the sorter can be timed")
-    void TestSorterCanBeTimed(int[] unordered) {
-        SortResults results = sorter.timedSort(unordered);
+    void TestSorterCanBeTimed(int[] unsorted) {
+        SortResults results = sorter.timedSort(unsorted);
         Assertions.assertNotEquals(0l, results.getTimeTakenNano());
     }
 }

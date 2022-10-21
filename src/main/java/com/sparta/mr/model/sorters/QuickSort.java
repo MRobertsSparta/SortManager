@@ -26,11 +26,7 @@ public class QuickSort implements Sorter {
 
     @Override
     public SortResults timedSort(int[] ints) throws NullArraySortException {
-        StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
-        int[] sorted = sort(ints);
-        stopWatch.stop();
-        return new SortResults(ints, sorted, stopWatch.getTime());
+        return SortUtils.timeSort(this, ints);
     }
 
     private int partition(int ints[], int start, int end) {

@@ -22,14 +22,14 @@ public class TestUtils {
         return Stream.of(generateRandomIntArray());
     }
 
-    public static int[] generateRandomOrderedIntArray() {
+    public static int[] generateRandomSortedIntArray() {
         int[] ints = generateRandomIntArray();
         Arrays.sort(ints);
         return ints;
     }
 
-    public static Stream<int[]> getRandomOrderedIntArrayAsStream() {
-        return Stream.of(generateRandomOrderedIntArray());
+    public static Stream<int[]> getRandomSortedIntArrayAsStream() {
+        return Stream.of(generateRandomSortedIntArray());
     }
 
     public static void reverseArray(int[] ints) {
