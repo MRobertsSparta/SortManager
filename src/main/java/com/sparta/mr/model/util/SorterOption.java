@@ -6,6 +6,7 @@ public enum SorterOption {
     TREE("Binary Tree Sort"),
     QUICK("Quick Sort"),
     INSERTION("Insertion Sort"),
+    CYCLE("Cycle Sort"),
     SELECTION("Selection Sort");
 
     private String name;

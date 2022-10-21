@@ -20,6 +20,7 @@ public class SortFactory {
             case TREE -> new BinaryTreeSort();
             case QUICK -> new QuickSort();
             case INSERTION -> new InsertionSort();
+            case CYCLE -> new CycleSort();
             case SELECTION -> new SelectionSort();
         };
     }
