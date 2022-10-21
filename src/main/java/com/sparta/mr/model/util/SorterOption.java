@@ -5,7 +5,8 @@ public enum SorterOption {
     MERGE("Merge Sort"),
     TREE("Binary Tree Sort"),
     QUICK("Quick Sort"),
-    INSERTION("Insertion Sort");
+    INSERTION("Insertion Sort"),
+    SELECTION("Selection Sort");
 
     private String name;
 

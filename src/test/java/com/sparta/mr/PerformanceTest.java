@@ -33,6 +33,9 @@ public class PerformanceTest {
     @Test
     public void testInsertionSortPerformance() {testSorterPerformance(new InsertionSort());}
 
+    @Test
+    public void testSelectionSortPerformance() {testSorterPerformance(new SelectionSort());}
+
     private void testSorterPerformance(Sorter sorter) {
         long start = System.nanoTime();
         int[] sortedArray = sorter.sort(testArray);
